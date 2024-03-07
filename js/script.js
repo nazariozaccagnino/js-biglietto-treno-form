@@ -7,7 +7,6 @@ let elGenerate = document.getElementById('btnGenerate');
 let elRefresh = document.getElementById('btnrefresh')
 let elFinalTicket = document.getElementById('finalticket');
 const pricePerKm = 0.21
-// let price = km * 0.21;
 // console.log(price, 'prezzointero');
 
 elGenerate.addEventListener('click', function () {
@@ -15,6 +14,9 @@ elGenerate.addEventListener('click', function () {
     let km = elKm.value
     let age = elAge.value
     let price = km * pricePerKm
+    let wagon = Math.floor((Math.random() * 10) + 1);
+    let seat = Math.floor((Math.random() * 4) + 1);
+    let ticketNumber = Math.floor((Math.random() * 99999) + 1);
     let finalprice = ''
     elFinalTicket.classList.remove ('d-none');
 
@@ -35,6 +37,9 @@ elGenerate.addEventListener('click', function () {
     }
     document.getElementById('outputprice').innerHTML = finalprice.toPrecision(4) + '€';
     document.getElementById('fullName').innerHTML = fullName;
+    document.getElementById('wagon').innerHTML = wagon;
+    document.getElementById('seat').innerHTML = seat;
+    document.getElementById('ticketNumber').innerHTML = ticketNumber;
 })
 
 elRefresh.addEventListener('click', function () {
