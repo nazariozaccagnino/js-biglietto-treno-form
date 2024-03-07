@@ -1,3 +1,12 @@
 .card-body>*{
     margin-bottom: 15px;
 }
+
+#svg{
+    max-width: 100%;
+    display: inline-block;
+}
+
+#svg img{
+    width: 40%;
+}
