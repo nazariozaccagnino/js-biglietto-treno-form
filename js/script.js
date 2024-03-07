@@ -3,16 +3,20 @@ let elKm = document.getElementById('kmInput');
 // console.log(elKm)
 let elAge = document.getElementById('ageInput');
 // console.log(elAge)
-let elGenerate = document.getElementById('btnGenerate')
+let elGenerate = document.getElementById('btnGenerate');
+let elRefresh = document.getElementById('btnrefresh')
+let elFinalTicket = document.getElementById('finalticket');
 const pricePerKm = 0.21
 // let price = km * 0.21;
 // console.log(price, 'prezzointero');
 
 elGenerate.addEventListener('click', function () {
+    let fullName = elFullName.value
     let km = elKm.value
     let age = elAge.value
     let price = km * pricePerKm
     let finalprice = ''
+    elFinalTicket.classList.remove ('d-none');
 
     if (age <= 17) {
         finalprice = price - ((price * 20) / 100);
@@ -30,5 +34,9 @@ elGenerate.addEventListener('click', function () {
         document.getElementById('ticketType').innerHTML = 'Biglietto intero'
     }
     document.getElementById('outputprice').innerHTML = finalprice.toPrecision(4) + '€';
+    document.getElementById('fullName').innerHTML = fullName;
 })
 
+elRefresh.addEventListener('click', function () {
+    location.reload();
+})
